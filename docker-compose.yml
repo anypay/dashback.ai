@@ -1,0 +1,21 @@
+webapp:
+  build: .
+  volumes:
+    - .:/usr/src/app
+  ports:
+    - "3000:3000"
+  links:
+    - postgres
+    - rabbitmq
+  environment:
+    - DATABASE_URL=postgres://postgres:postgres@postgres/postgres
+    - AMQP_URL=amqp://guest:guest@rabbitmq:5672/
+postgres:
+  image: postgres
+
+rabbitmq:
+  image: rabbitmq:3-management
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+
