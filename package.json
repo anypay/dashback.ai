@@ -23,7 +23,8 @@
     "trailpack-repl": "^3"
   },
   "scripts": {
-    "test": "eslint . && mocha"
+    "test": "eslint . && mocha",
+		"build": "echo 'TODO: Add Typescript'"
   },
   "engines": {
     "node": ">= 7.6.0"
