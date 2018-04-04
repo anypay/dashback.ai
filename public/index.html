@@ -294,7 +294,7 @@
 	<script type="text/javascript" src="assets/js/odometer.min.js"></script>
 	<script>
 
-		$.getJSON("http://cryptozone.ai:8200/api/dash").then(result => {
+		$.getJSON("https://cryptozone.ai/api/dash").then(result => {
 			console.log(result)
 
 			$('#dash-paid').html(result.totalPaid.toFixed(6));
