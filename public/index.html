@@ -17,9 +17,11 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<link rel="stylesheet" href="assets/css/odometer-theme-car.css" />
 		<style>
-		.odometer {
+		.odometer, .totals {
 					font-size: 80px;
+				color: white;
 		}
+		
 		</style>
   </head>
   <body>
@@ -106,11 +108,21 @@
       <div id="feature-sub" class="feature-sub">
         <div class="container">
 					<div class="col-md-6">
-						<div id="odometer" class="odometer">5000</div>
+						<div id="dash-paid" class="totals">1.003</div>
 					</div>
 					<div class="col-md-6">
 						<div class="sub-inner">
-							<h1 class="wow fadeInUp" data-wow-delay="0.1s">bits Dash-Back Paid</h1>
+							<h1 class="wow fadeInUp" data-wow-delay="0.1s">Dash-Back Paid</h1>
+						</div>
+					</div>
+        </div>
+        <div class="container">
+					<div class="col-md-6">
+						<div id="dash-available" class="totals">0</div>
+					</div>
+					<div class="col-md-6">
+						<div class="sub-inner">
+							<h1 class="wow fadeInUp" data-wow-delay="0.1s">Dash Available</h1>
 						</div>
 					</div>
         </div>
@@ -193,7 +205,9 @@
             <div class="pricing-content">
               <h1 class="wow fadeInUp" data-wow-delay="0.1s">100% Donor Funded</h1>
               <h4 class="wow fadeInUp" data-wow-delay="0.2s">Anonymous Donations Encouraged</h4>
+              <h5 class="wow fadeInUp" data-wow-delay="0.3s"><a href="dash:XsDFwjpGkdwtc86ce4apMNe6ssQCRAs7eH">XsDFwjpGkdwtc86ce4apMNe6ssQCRAs7eH</a></h5><br/>
               <p class="wow fadeInUp" data-wow-delay="0.3s">Are you a fan of Dash? Do you crave more adoption? Donate to DashBack.AI today and 100% of your bits will go directly to incentivizing people to shop with Dash.</p>
+              <p class="wow fadeInUp" data-wow-delay="0.3s">Send DASH to the address show and the funds will be immediately available to the Dash Back agent.</p>
               <div class="btn-buy">
                 <a href="#"><img class="img-responsive wow fadeIn" data-wow-delay="0.4s" src="assets/images/contribute_dash_qr.png" width="200" alt="Buy" /></a>
               </div>
@@ -278,10 +292,15 @@
   <script type="text/javascript" src="assets/js/menu.js"></script>
   <script type="text/javascript" src="assets/js/custom.js"></script>
 	<script type="text/javascript" src="assets/js/odometer.min.js"></script>
-	<script type="text/javascript">
-	setTimeout(function(){
-		    odometer.innerHTML = 10688;
-	}, 1000);
+	<script>
+
+		$.getJSON("http://cryptozone.ai:8200/api/dash").then(result => {
+			console.log(result)
+
+			$('#dash-paid').html(result.totalPaid.toFixed(6));
+			$('#dash-available').html(result.totalAvailable.toFixed(6));
+		});
+
 	</script>
   </body>
 </html>

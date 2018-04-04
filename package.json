@@ -7,13 +7,15 @@
   "dependencies": {
     "dotenv": "^5.0.1",
     "inert": "^5.1.0",
+    "nes": "^8.0.0",
     "parse-database-url": "^0.3.0",
     "pg": "^7.4.1",
     "trailpack-hapi": "^3.1.1",
     "trailpack-knex": "^3.0.0",
     "trailpack-router": "^3.1.4",
     "trailpack-winston": "^3.0.1",
-    "trails": "^3"
+    "trails": "^3",
+    "ws": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "^3",
@@ -24,7 +26,7 @@
   },
   "scripts": {
     "test": "eslint . && mocha",
-		"build": "echo 'TODO: Add Typescript'"
+    "build": "echo 'TODO: Add Typescript'"
   },
   "engines": {
     "node": ">= 7.6.0"
